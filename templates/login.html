@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hospital Login{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= BODY ================= */
+
+body{
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ================= LOGIN WRAPPER ================= */
+
+.login-wrapper{
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    box-shadow:
+    0 12px 30px rgba(11,31,58,0.12);
+
+    padding: 35px;
+
+    border: 1px solid #e2e8f0;
+}
+
+/* ================= TITLE ================= */
+
+.login-title{
+
+    color: #0b1f3a;
+
+    font-weight: 800;
+
+    font-size: 38px;
+}
+
+/* ================= SUBTITLE ================= */
+
+.text-muted{
+    color: #64748b !important;
+}
+
+/* ================= LABELS ================= */
+
+label{
+
+    font-weight: 600;
+
+    color: #0b1f3a;
+
+    margin-bottom: 8px;
+
+    display: block;
+}
+
+/* ================= INPUTS ================= */
+
+input{
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d6e2f3;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+input:focus{
+
+    border-color: #1d4b8f;
+
+    box-shadow:
+    0 0 0 4px rgba(29,75,143,0.12);
+}
+
+/* ================= LOGIN BUTTON ================= */
+
+.btn-primary{
+
+    background: #0b1f3a;
+
+    border: none;
+
+    padding: 14px;
+
+    font-weight: 700;
+
+    border-radius: 14px;
+
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover{
+
+    background: #142f57;
+
+    transform: translateY(-2px);
+}
+
+/* ================= SIGNUP BUTTONS ================= */
+
+.btn-outline-primary{
+
+    border: 2px solid #1d4b8f;
+
+    color: #1d4b8f;
+
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    padding: 10px;
+}
+
+.btn-outline-primary:hover{
+
+    background: #1d4b8f;
+
+    color: white;
+}
+
+/* ================= DIVIDER ================= */
+
+hr{
+    border-top: 1px solid #d6e2f3;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 576px){
+
+    .card{
+        padding: 28px 22px;
+    }
+
+    .login-title{
+        font-size: 30px;
+    }
+
+}
+
+</style>
+
+<div class="login-wrapper">
+
+    <div class="col-md-5">
+
+        <div class="card">
+
+            <!-- TITLE -->
+
+            <h1 class="text-center login-title mb-2">
+                Hospital Login
+            </h1>
+
+            <p class="text-muted text-center mb-4">
+                Login as Patient or Doctor
+            </p>
+
+            <!-- FORM -->
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+
+                    {{ form.username.label_tag }}
+
+                    {{ form.username }}
+
+                </div>
+
+                <div class="mb-4">
+
+                    {{ form.password.label_tag }}
+
+                    {{ form.password }}
+
+                </div>
+
+                <button class="btn btn-primary w-100">
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <hr class="my-4">
+
+            <!-- SIGNUP -->
+
+            <div class="text-center">
+
+                <p class="mb-3 fw-semibold">
+                    New here?
+                </p>
+
+                <a href="{% url 'patient_signup' %}"
+                   class="btn btn-outline-primary w-100 mb-3">
+
+                    Patient Signup
+
+                </a>
+
+                <a href="{% url 'doctor_signup' %}"
+                   class="btn btn-outline-primary w-100">
+
+                    Doctor Signup
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Appointment{% endblock %}
+
+{% block content %}
+
+<div class="register-wrapper">
+
+    <div class="register-card">
+
+        <!-- TITLE -->
+
+        <div class="text-center mb-4">
+
+            <h1 class="register-title">
+                Book Appointment
+            </h1>
+
+            <p class="text-muted">
+                Schedule your hospital visit easily
+            </p>
+
+        </div>
+
+        <!-- FORM -->
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <!-- DEPARTMENT -->
+
+            <div class="mb-4">
+
+                <label class="form-label fw-semibold">
+
+                    Department
+
+                </label>
+
+                {{ form.department }}
+
+            </div>
+
+            <!-- DOCTOR -->
+
+            <div class="mb-4">
+
+                <label class="form-label fw-semibold">
+
+                    Doctor
+
+                </label>
+
+                {{ form.doctor }}
+
+            </div>
+
+            <!-- DATE -->
+
+            <div class="mb-4">
+
+                <label class="form-label fw-semibold">
+
+                    Booking Date
+
+                </label>
+
+                {{ form.booking_date }}
+
+            </div>
+
+            <!-- SUBMIT -->
+
+            <button type="submit"
+                    class="btn register-btn">
+
+                Confirm Appointment
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

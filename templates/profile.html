@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= PROFILE PAGE ================= */
+
+.profile-wrapper{
+
+    padding: 50px 20px;
+}
+
+/* ================= PROFILE CARD ================= */
+
+.profile-card{
+
+    max-width: 650px;
+
+    margin: auto;
+
+    background: white;
+
+    border: none;
+
+    border-radius: 28px;
+
+    padding: 40px;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* ================= PROFILE HEADER ================= */
+
+.profile-header{
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+/* PROFILE IMAGE */
+
+.profile-avatar{
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    margin: auto auto 20px;
+}
+
+/* TITLE */
+
+.profile-title{
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+    color: #0b1f3a;
+}
+
+/* SUBTITLE */
+
+.profile-subtitle{
+
+    color: #64748b;
+
+    font-size: 17px;
+}
+
+/* ================= PROFILE INFO ================= */
+
+.profile-info{
+
+    background: #f8fafc;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    transition: 0.3s ease;
+}
+
+.profile-info:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* LABEL */
+
+.info-label{
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+/* VALUE */
+
+.info-value{
+
+    color: #0b1f3a;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+/* ================= BUTTON ================= */
+
+.profile-btn{
+
+    background:
+    linear-gradient(
+        90deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    color: white;
+
+    font-weight: 700;
+
+    width: 100%;
+
+    transition: 0.3s ease;
+}
+
+.profile-btn:hover{
+
+    transform: translateY(-2px);
+
+    background:
+    linear-gradient(
+        90deg,
+        #142f57,
+        #2563eb
+    );
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px){
+
+    .profile-card{
+        padding: 30px 20px;
+    }
+
+    .profile-title{
+        font-size: 30px;
+    }
+
+}
+
+</style>
+
+<div class="container profile-wrapper">
+
+    <div class="profile-card">
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="profile-header">
+
+            <div class="profile-avatar">
+
+                {{ profile.user.username|first|upper }}
+
+            </div>
+
+            <h2 class="profile-title">
+                User Profile
+            </h2>
+
+            <p class="profile-subtitle">
+                Manage your hospital account information
+            </p>
+
+        </div>
+
+        <!-- ================= USERNAME ================= -->
+
+        <div class="profile-info">
+
+            <div class="info-label">
+                Username
+            </div>
+
+            <div class="info-value">
+                {{ profile.user.username }}
+            </div>
+
+        </div>
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="profile-info">
+
+            <div class="info-label">
+                Email Address
+            </div>
+
+            <div class="info-value">
+                {{ profile.user.email }}
+            </div>
+
+        </div>
+
+        <!-- ================= ROLE ================= -->
+
+        <div class="profile-info">
+
+            <div class="info-label">
+                Account Role
+            </div>
+
+            <div class="info-value">
+                {{ profile.role }}
+            </div>
+
+        </div>
+
+        <!-- ================= BUTTON ================= -->
+
+
+    </div>
+
+</div>
+
+{% endblock %}

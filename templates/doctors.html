@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>Our Doctors</title>{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+  <!-- HEADER -->
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">Our Specialists</h2>
+    <p class="text-muted">Meet our experienced and qualified doctors</p>
+  </div>
+
+  <!-- DOCTORS GRID -->
+  <div class="row g-4">
+
+    {% for d in doc %}
+    <div class="col-md-4">
+
+      <div class="card doctor-card border-0 shadow-sm h-100">
+
+        <!-- IMAGE -->
+        <div class="overflow-hidden rounded-top">
+          <img src="{{ d.doc_image.url }}"
+               class="card-img-top doctor-img"
+               alt="{{ d.doc_name }}">
+        </div>
+
+        <!-- BODY -->
+        <div class="card-body text-center">
+
+          <h5 class="fw-bold text-primary mb-1">
+            Dr. {{ d.doc_name }}
+          </h5>
+
+          <p class="text-muted small mb-2">
+            {{ d.doc_spec }}
+          </p>
+
+          <!-- OPTIONAL DESCRIPTION -->
+          <p class="small text-muted">
+            {{ d.doc_description|truncatewords:15 }}
+          </p>
+
+          <!-- BUTTON -->
+          <a href="{% url 'booking' %}" class="btn btn-outline-primary btn-sm mt-2">
+            Book Appointment
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% endblock %}

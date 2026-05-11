@@ -1,0 +1,200 @@
+/* ================= BODY ================= */
+/* ================= BODY ================= */
+
+body{
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    background: #ffffff;
+
+    min-height: 100vh;
+}
+/* ================= WRAPPER ================= */
+
+.register-wrapper{
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* ================= CARD ================= */
+
+.register-card{
+
+    width: 100%;
+    max-width: 430px;
+
+    background: #ffffff;
+
+    padding: 40px 30px;
+
+    border-radius: 28px;
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,0.18);
+}
+
+/* ================= TITLE ================= */
+
+.register-title{
+
+    font-size: 40px;
+
+    font-weight: 800;
+
+    color: #0b1f3a;
+}
+
+/* ================= INPUTS ================= */
+
+.form-control{
+
+    width: 100%;
+
+    padding: 18px 20px;
+
+    border-radius: 18px;
+
+    border: 2px solid #dbe4ee;
+
+    background: #f8fafc;
+
+    font-size: 17px;
+
+    transition: 0.3s ease;
+}
+
+.form-control:focus{
+
+    outline: none;
+
+    border-color: #1d4b8f;
+
+    box-shadow:
+    0 0 0 4px rgba(29,75,143,0.15);
+}
+
+/* ================= BUTTON ================= */
+
+.register-btn{
+
+    width: 100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    color: white;
+
+    border: none;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.register-btn:hover{
+
+    transform: translateY(-2px);
+
+    background:
+    linear-gradient(
+        90deg,
+        #142f57,
+        #2563eb
+    );
+}
+
+/* ================= LOGIN TEXT ================= */
+
+.login-text{
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+.login-text a{
+
+    color: #1d4b8f;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 576px){
+
+    .register-card{
+        padding: 35px 22px;
+    }
+
+    .register-title{
+        font-size: 34px;
+    }
+
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    background: #0b1f3a !important;
+}
+
+.navbar .nav-link{
+    color: white !important;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover{
+    color: #cfe3ff !important;
+}
+
+.navbar .navbar-brand{
+    color: white !important;
+    font-weight: 700;
+}
+/* ================= APPOINTMENT BADGES ================= */
+
+.badge{
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+/* ================= TABLE HOVER ================= */
+
+.table-hover tbody tr{
+
+    transition: 0.3s ease;
+}
+
+.table-hover tbody tr:hover{
+
+    background: #f8fbff;
+}
+

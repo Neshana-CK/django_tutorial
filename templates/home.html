@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}City Hospital{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= HERO SECTION ================= */
+
+.hero-img{
+
+    height: 92vh;
+
+    object-fit: cover;
+
+    filter: brightness(55%);
+}
+
+/* ================= CAROUSEL CAPTION ================= */
+
+.carousel-caption{
+
+    bottom: 22%;
+
+    z-index: 10;
+}
+
+.carousel-caption h1{
+
+    font-size: 64px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+    0 6px 18px rgba(0,0,0,0.4);
+}
+
+.carousel-caption p{
+
+    font-size: 22px;
+
+    margin-bottom: 28px;
+
+    color: #f1f5f9;
+}
+
+/* ================= BUTTON ================= */
+
+.hero-btn{
+
+    background:
+    linear-gradient(
+        90deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    color: white;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 14px 32px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+
+    text-decoration: none;
+}
+
+.hero-btn:hover{
+
+    background:
+    linear-gradient(
+        90deg,
+        #142f57,
+        #2563eb
+    );
+
+    transform: translateY(-3px);
+
+    color: white;
+}
+
+/* ================= OVERLAY ================= */
+
+.carousel-item{
+
+    position: relative;
+}
+
+.carousel-item::before{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+        rgba(11,31,58,0.55),
+        rgba(11,31,58,0.55)
+    );
+
+    z-index: 1;
+}
+
+.carousel-caption{
+
+    z-index: 2;
+}
+
+/* ================= CONTROLS ================= */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+
+    background-color: rgba(11,31,58,0.7);
+
+    border-radius: 50%;
+
+    padding: 22px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px){
+
+    .hero-img{
+        height: 70vh;
+    }
+
+    .carousel-caption{
+        bottom: 18%;
+    }
+
+    .carousel-caption h1{
+        font-size: 38px;
+    }
+
+    .carousel-caption p{
+        font-size: 16px;
+    }
+
+    .hero-btn{
+        padding: 12px 22px;
+        font-size: 16px;
+    }
+
+}
+
+</style>
+
+<!-- ================= HERO CAROUSEL ================= -->
+
+<div id="hospitalCarousel"
+     class="carousel slide carousel-fade"
+     data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <!-- ================= SLIDE 1 ================= -->
+
+        <div class="carousel-item active">
+
+            <img src="{% static 'images/adwance.jpg' %}"
+                 class="d-block w-100 hero-img"
+                 alt="Healthcare">
+
+            <div class="carousel-caption">
+
+                <h1>
+                    Advanced Healthcare
+                </h1>
+
+                <p>
+                    World-class treatment with expert doctors
+                </p>
+
+                <a href="{% url 'booking' %}"
+                   class="hero-btn">
+
+                    Book Appointment
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- ================= SLIDE 2 ================= -->
+
+        <div class="carousel-item">
+
+            <img src="{% static 'images/emergency.jpg' %}"
+                 class="d-block w-100 hero-img"
+                 alt="Emergency Care">
+
+            <div class="carousel-caption">
+
+                <h1>
+                    24/7 Emergency Care
+                </h1>
+
+                <p>
+                    We are always ready to save lives
+                </p>
+
+                <a href="{% url 'contact' %}"
+                   class="hero-btn">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- ================= SLIDE 3 ================= -->
+
+        <div class="carousel-item">
+
+            <img src="{% static 'images/home.jpg' %}"
+                 class="d-block w-100 hero-img"
+                 alt="Doctors">
+
+            <div class="carousel-caption">
+
+                <h1>
+                    Expert Doctors
+                </h1>
+
+                <p>
+                    Specialists across all major departments
+                </p>
+
+                <a href="{% url 'doctors' %}"
+                   class="hero-btn">
+
+                    Meet Doctors
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= CONTROLS ================= -->
+
+    <button class="carousel-control-prev"
+            type="button"
+            data-bs-target="#hospitalCarousel"
+            data-bs-slide="prev">
+
+        <span class="carousel-control-prev-icon"></span>
+
+    </button>
+
+    <button class="carousel-control-next"
+            type="button"
+            data-bs-target="#hospitalCarousel"
+            data-bs-slide="next">
+
+        <span class="carousel-control-next-icon"></span>
+
+    </button>
+
+</div>
+
+{% endblock %}

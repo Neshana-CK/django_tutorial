@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= SUCCESS PAGE ================= */
+
+.success-wrapper{
+
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+/* ================= CARD ================= */
+
+.success-card{
+
+    background: white;
+
+    border: none;
+
+    border-radius: 28px;
+
+    padding: 50px 40px;
+
+    text-align: center;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* ================= ICON ================= */
+
+.success-icon{
+
+    width: 110px;
+
+    height: 110px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 50px;
+
+    margin-bottom: 30px;
+}
+
+/* ================= TITLE ================= */
+
+.success-title{
+
+    color: #0b1f3a;
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+/* ================= TEXT ================= */
+
+.success-text{
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+/* ================= BUTTONS ================= */
+
+.home-btn{
+
+    border: 2px solid #0b1f3a;
+
+    color: #0b1f3a;
+
+    padding: 12px 24px;
+
+    border-radius: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.home-btn:hover{
+
+    background: #0b1f3a;
+
+    color: white;
+}
+
+/* PRIMARY BUTTON */
+
+.book-btn{
+
+    background:
+    linear-gradient(
+        90deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.book-btn:hover{
+
+    background:
+    linear-gradient(
+        90deg,
+        #142f57,
+        #2563eb
+    );
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px){
+
+    .success-card{
+        padding: 40px 25px;
+    }
+
+    .success-title{
+        font-size: 30px;
+    }
+
+}
+
+</style>
+
+<div class="container success-wrapper">
+
+    <div class="row justify-content-center w-100">
+
+        <div class="col-md-7">
+
+            <div class="success-card">
+
+                <!-- ================= ICON ================= -->
+
+                <div class="success-icon">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <!-- ================= TITLE ================= -->
+
+                <h2 class="success-title">
+
+                    Appointment Confirmed
+
+                </h2>
+
+                <!-- ================= MESSAGE ================= -->
+
+                <p class="success-text">
+
+                    Your appointment has been successfully booked.
+                    A confirmation email has been sent to you.
+
+                </p>
+
+                <!-- ================= BUTTONS ================= -->
+
+                <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+
+                    <a href="{% url 'home' %}"
+                       class="btn home-btn">
+
+                        Home
+
+                    </a>
+
+                    <a href="{% url 'booking' %}"
+                       class="btn book-btn">
+
+                        Book Another
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

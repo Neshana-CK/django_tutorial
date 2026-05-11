@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Upload Report{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-soft p-4">
+
+            <h3 class="text-center text-primary fw-bold mb-4">
+                Upload Medical Report
+            </h3>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Upload Report
+                </button>
+            </form>
+
+            <p class="text-muted text-center mt-3" style="font-size: 14px;">
+                Supported formats: PDF, JPG, PNG, DOC
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

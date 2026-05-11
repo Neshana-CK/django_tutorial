@@ -1,0 +1,615 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-wrapper{
+    padding: 40px 20px;
+}
+
+/* ================= HEADER ================= */
+
+.dashboard-header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b1f3a,
+        #142f57
+    );
+
+    border-radius: 28px;
+
+    padding: 40px;
+
+    color: white;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+    0 12px 30px rgba(11,31,58,0.18);
+}
+
+.dashboard-header h1{
+
+    font-size: 48px;
+
+    font-weight: 800;
+}
+
+.dashboard-header p{
+
+    color: #dbeafe;
+
+    font-size: 18px;
+}
+
+/* ================= STATS ================= */
+
+.stats-card{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    border: none;
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    color: white;
+
+    box-shadow:
+    0 10px 28px rgba(11,31,58,0.18);
+
+    transition: 0.3s ease;
+}
+
+.stats-card:hover{
+
+    transform: translateY(-5px);
+}
+
+.stats-card h6{
+
+    color: #dbeafe;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.stats-card h2{
+
+    font-size: 42px;
+
+    font-weight: 800;
+}
+
+/* ================= MAIN CONTENT CARDS ================= */
+
+.content-card{
+
+    border: none;
+
+    border-radius: 24px;
+
+    background: white;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+}
+
+/* ================= CARD TITLES ================= */
+
+.card-title{
+
+    color: #0b1f3a;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+/* ================= FORM ================= */
+
+.form-label{
+
+    font-weight: 600;
+
+    color: #0b1f3a;
+}
+
+.form-control{
+
+    border-radius: 14px;
+
+    padding: 12px 16px;
+
+    border: 1px solid #dbe4ee;
+}
+
+.form-control:focus{
+
+    border-color: #1d4b8f;
+
+    box-shadow:
+    0 0 0 4px rgba(29,75,143,0.12);
+}
+
+/* ================= BUTTONS ================= */
+
+.btn-primary{
+
+    background:
+    linear-gradient(
+        90deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover{
+
+    background:
+    linear-gradient(
+        90deg,
+        #142f57,
+        #2563eb
+    );
+
+    transform: translateY(-2px);
+}
+
+/* ================= TABLE ================= */
+
+.table{
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.table thead{
+
+    background: #0b1f3a;
+
+    color: white;
+}
+
+.table th{
+
+    border: none;
+
+    padding: 16px;
+
+    font-weight: 600;
+}
+
+.table td{
+
+    padding: 16px;
+
+    vertical-align: middle;
+}
+
+/* ================= DOWNLOAD BUTTON ================= */
+
+.btn-download{
+
+    background: #eff6ff;
+
+    color: #1d4b8f;
+
+    border-radius: 10px;
+
+    padding: 8px 14px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.btn-download:hover{
+
+    background: #1d4b8f;
+
+    color: white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px){
+
+    .dashboard-header h1{
+        font-size: 36px;
+    }
+
+}
+
+</style>
+
+<div class="container dashboard-wrapper">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="dashboard-header">
+
+        <h1>
+            Doctor Dashboard
+        </h1>
+
+        <p class="mb-0">
+            Welcome Dr. {{ user.username }}
+        </p>
+
+    </div>
+
+    <!-- ================= STATS ================= -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+
+            <div class="stats-card text-center">
+
+                <h6>
+                    Appointments
+                </h6>
+
+                <h2>
+                    {{ total_appointments }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stats-card text-center">
+
+                <h6>
+                    Patients
+                </h6>
+
+                <h2>
+                    {{ total_patients }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stats-card text-center">
+
+                <h6>
+                    Reports
+                </h6>
+
+                <h2>
+                    {{ reports|length }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= UPLOAD REPORT ================= -->
+
+    <div class="content-card">
+
+        <h4 class="card-title">
+            Upload Patient Report
+        </h4>
+
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Patient
+                </label>
+
+                {{ form.patient }}
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Report File
+                </label>
+
+                {{ form.report }}
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Description
+                </label>
+
+                {{ form.description }}
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary w-100">
+
+                Upload Report
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= APPOINTMENTS ================= -->
+<!-- ================= APPOINTMENTS ================= -->
+
+<div class="content-card">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h4 class="card-title mb-0">
+            Recent Appointments
+        </h4>
+
+        <span class="badge bg-primary px-3 py-2">
+            {{ total_appointments }} Total
+        </span>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table align-middle table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+                    <th>Patient</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Department</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for app in appointments %}
+
+                <tr>
+
+                    <td>
+
+                        {{ forloop.counter }}
+
+                    </td>
+
+                    <td>
+
+                        <div class="fw-semibold">
+                            {{ app.patient.username }}
+                        </div>
+
+                    </td>
+
+                    <td>
+
+                        {{ app.patient.email }}
+
+                    </td>
+
+                    <td>
+
+                        {{ app.booking_date }}
+
+                    </td>
+
+                    <td>
+
+                        {{ app.department.dep_name }}
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge bg-success">
+                            Confirmed
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="6"
+                        class="text-center empty-text">
+
+                        No appointments available
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+    <!-- ================= PATIENTS ================= -->
+
+    <div class="content-card">
+
+        <h4 class="card-title">
+            Patients
+        </h4>
+
+        <div class="table-responsive">
+
+            <table class="table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Email</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for p in patients %}
+
+                    <tr>
+
+                        <td>{{ p.username }}</td>
+
+                        <td>{{ p.email }}</td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="2"
+                            class="text-center text-muted">
+
+                            No patients
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- ================= REPORTS ================= -->
+
+    <div class="content-card">
+
+        <h4 class="card-title">
+            Reports
+        </h4>
+
+        <div class="table-responsive">
+
+            <table class="table align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Patient</th>
+                        <th>Description</th>
+                        <th>File</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for r in reports %}
+
+                    <tr>
+
+                        <td>{{ r.patient.username }}</td>
+
+                        <td>{{ r.description }}</td>
+
+                        <td>
+
+                            <a href="{{ r.report.url }}"
+                               class="btn-download"
+                               download>
+
+                                Download
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="3"
+                            class="text-center text-muted">
+
+                            No reports
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

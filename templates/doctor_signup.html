@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Registration{% endblock %}
+
+{% block content %}
+
+<div class="register-wrapper">
+
+    <div class="register-card">
+
+        <!-- TITLE -->
+        <div class="text-center mb-4">
+
+            <h1 class="register-title">
+                Doctor Registration
+            </h1>
+
+        </div>
+
+        <!-- FORM -->
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-4">
+                {{ form.username }}
+            </div>
+
+            <div class="mb-4">
+                {{ form.email }}
+            </div>
+
+            <div class="mb-4">
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn register-btn w-100">
+                Register
+            </button>
+
+        </form>
+
+        <!-- LOGIN -->
+        <div class="text-center mt-4">
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

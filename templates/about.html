@@ -1,0 +1,520 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About - CityCare{% endblock %}
+
+{% block content %}
+
+<style>
+
+/* ================= PAGE ================= */
+
+.about-section{
+
+    padding: 60px 0;
+}
+
+/* ================= HERO ================= */
+
+.about-title{
+
+    font-size: 52px;
+
+    font-weight: 800;
+
+    color: #0b1f3a;
+}
+
+.about-subtitle{
+
+    color: #64748b;
+
+    font-size: 18px;
+}
+
+/* ================= IMAGE ================= */
+
+.about-img{
+
+    width: 100%;
+
+    border-radius: 28px;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.10);
+
+    transition: 0.3s ease;
+}
+
+.about-img:hover{
+
+    transform: scale(1.02);
+}
+
+/* ================= TEXT ================= */
+
+.about-heading{
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: #0b1f3a;
+
+    margin-bottom: 20px;
+}
+
+.about-text{
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+/* ================= BUTTON ================= */
+
+.about-btn{
+
+    background:
+    linear-gradient(
+        90deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    color: white;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 14px 28px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+
+    text-decoration: none;
+
+    display: inline-block;
+}
+
+.about-btn:hover{
+
+    background:
+    linear-gradient(
+        90deg,
+        #142f57,
+        #2563eb
+    );
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+/* ================= MISSION VISION ================= */
+
+.info-card{
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    height: 100%;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+
+    transition: 0.3s ease;
+}
+
+.info-card:hover{
+
+    transform: translateY(-5px);
+}
+
+.info-card h5{
+
+    color: #0b1f3a;
+
+    font-weight: 700;
+
+    margin-bottom: 16px;
+}
+
+.info-card p{
+
+    color: #64748b;
+
+    line-height: 1.8;
+}
+
+/* ================= SERVICES ================= */
+
+.service-card{
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 35px 20px;
+
+    box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+
+    transition: 0.3s ease;
+
+    height: 100%;
+}
+
+.service-card:hover{
+
+    transform: translateY(-6px);
+}
+
+.service-icon{
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: auto;
+
+    border-radius: 20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b1f3a,
+        #1d4b8f
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 32px;
+
+    margin-bottom: 22px;
+}
+
+.service-card h6{
+
+    font-weight: 700;
+
+    color: #0b1f3a;
+
+    font-size: 18px;
+}
+
+/* ================= STATS ================= */
+
+.stats-section{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b1f3a,
+        #142f57
+    );
+
+    border-radius: 30px;
+
+    padding: 60px 30px;
+
+    color: white;
+
+    margin-top: 50px;
+}
+
+.stats-number{
+
+    font-size: 48px;
+
+    font-weight: 800;
+}
+
+.stats-text{
+
+    color: #dbeafe;
+
+    font-size: 18px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 768px){
+
+    .about-title{
+        font-size: 38px;
+    }
+
+    .about-heading{
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
+<div class="container about-section">
+
+    <!-- ================= HERO ================= -->
+
+    <div class="text-center mb-5">
+
+        <h1 class="about-title">
+            About CityCare Hospital
+        </h1>
+
+        <p class="about-subtitle">
+            Delivering trusted healthcare with excellence
+        </p>
+
+    </div>
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <div class="row align-items-center g-5 mb-5">
+
+        <div class="col-lg-6">
+
+            <img src="{% static 'images/about.png' %}"
+                 class="about-img"
+                 alt="Hospital">
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <h2 class="about-heading">
+
+                Who We Are
+
+            </h2>
+
+            <p class="about-text">
+
+                CityCare Hospital is a leading healthcare provider offering advanced
+                medical services with modern technology and expert doctors.
+
+            </p>
+
+            <p class="about-text">
+
+                We focus on patient safety, comfort, and fast recovery using
+                world-class treatment methods.
+
+            </p>
+
+            <a href="{% url 'booking' %}"
+               class="about-btn mt-3">
+
+                Book Appointment
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ================= MISSION / VISION ================= -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-6">
+
+            <div class="info-card">
+
+                <h5>
+                    Our Mission
+                </h5>
+
+                <p>
+                    To provide affordable, high-quality healthcare
+                    with compassion and excellence.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="info-card">
+
+                <h5>
+                    Our Vision
+                </h5>
+
+                <p>
+                    To become the most trusted healthcare provider
+                    with world-class services.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= SERVICES ================= -->
+
+    <div class="mb-5">
+
+        <div class="text-center mb-5">
+
+            <h2 class="about-heading">
+                Our Services
+            </h2>
+
+        </div>
+
+        <div class="row g-4 text-center">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-truck-medical"></i>
+
+                    </div>
+
+                    <h6>
+                        24/7 Emergency
+                    </h6>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                    <h6>
+                        Expert Doctors
+                    </h6>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                    </div>
+
+                    <h6>
+                        Modern Equipment
+                    </h6>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                    </div>
+
+                    <h6>
+                        Online Booking
+                    </h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats-section text-center">
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+
+                <div class="stats-number">
+                    50+
+                </div>
+
+                <div class="stats-text">
+                    Doctors
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="stats-number">
+                    100+
+                </div>
+
+                <div class="stats-text">
+                    Staff
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="stats-number">
+                    5000+
+                </div>
+
+                <div class="stats-text">
+                    Patients
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="stats-number">
+                    10+
+                </div>
+
+                <div class="stats-text">
+                    Departments
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
