@@ -1,5 +1,7 @@
 /* ================= BODY ================= */
-
+html, body {
+    background: #0b1f3a !important;
+}
 body {
     margin: 0;
     padding: 0;
@@ -146,11 +148,12 @@ body {
 
 
 .container,
-.container-fluid,.card {
-    background: #112a4a !important;
-    color: #ffffff;
-    border: none;
-}
-.row {
-    background: transparent !important;
+.container-fluid,
+.card,
+.row,
+.table,
+.table td,
+.table th {
+    background-color: transparent !important;
+    color: #ffffff !important;
 }
