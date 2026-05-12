@@ -1,17 +1,14 @@
 /* ================= BODY ================= */
 html, body {
-    background: #0b1f3a !important;
-}
-body {
+    background-color: #0b1f3a !important;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #0b1f3a !important;
-    color: #ffffff !important;
     min-height: 100vh;
+    color: #111; /* default readable text */
 }
-/* ================= WRAPPER ================= */
 
+/* ================= WRAPPER ================= */
 .register-wrapper {
     min-height: 100vh;
     display: flex;
@@ -21,40 +18,37 @@ body {
 }
 
 /* ================= CARD ================= */
-
 .register-card {
     width: 100%;
     max-width: 430px;
-    background: #112a4a;   /* dark navy card */
+    background: #ffffff;   /* FIX: white card */
     padding: 40px 30px;
     border-radius: 28px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-    color: #ffffff;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+    color: #111;
 }
 
 /* ================= TITLE ================= */
-
 .register-title {
     font-size: 40px;
     font-weight: 800;
-    color: #ffffff;
+    color: #111;
 }
 
 /* ================= INPUTS ================= */
-
 .form-control {
     width: 100%;
     padding: 18px 20px;
     border-radius: 18px;
-    border: 1px solid #2c4f7a;
-    background: #1b355a;
+    border: 1px solid #ccc;
+    background: #fff;
     font-size: 17px;
-    color: #ffffff;
+    color: #111;
     transition: 0.3s ease;
 }
 
 .form-control::placeholder {
-    color: #cbd5e1;
+    color: #777;
 }
 
 .form-control:focus {
@@ -64,11 +58,10 @@ body {
 }
 
 /* ================= BUTTON ================= */
-
 .register-btn {
     width: 100%;
-    background: #ffffff;
-    color: #0b1f3a;
+    background: #0b1f3a;
+    color: #ffffff;
     border: none;
     padding: 18px;
     border-radius: 18px;
@@ -78,38 +71,24 @@ body {
 }
 
 .register-btn:hover {
-    background: #e5e7eb;
+    background: #142c52;
     transform: translateY(-2px);
 }
 
 /* ================= LOGIN TEXT ================= */
-
 .login-text {
     font-size: 18px;
     font-weight: 600;
-    color: #ffffff;
+    color: #111;
 }
 
 .login-text a {
-    color: #93c5fd;
+    color: #2563eb;
     text-decoration: none;
     font-weight: 700;
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width: 576px) {
-    .register-card {
-        padding: 35px 22px;
-    }
-
-    .register-title {
-        font-size: 34px;
-    }
-}
-
 /* ================= NAVBAR ================= */
-
 .navy-navbar {
     background: #0b1f3a !important;
 }
@@ -129,62 +108,38 @@ body {
 }
 
 /* ================= BADGES ================= */
-
 .badge {
     border-radius: 10px;
     font-size: 13px;
     font-weight: 600;
 }
 
-/* ================= TABLE HOVER ================= */
-
-.table-hover tbody tr {
-    transition: 0.3s ease;
-}
-
+/* ================= TABLE ================= */
 .table-hover tbody tr:hover {
-    background: #132b4c;
+    background: #e9f0ff;
 }
 
-
+/* ================= BOOTSTRAP RESET ================= */
 .container,
 .container-fluid,
-.card,
 .row,
-.table,
-.table td,
-.table th {
-    background-color: transparent !important;
-    color: #ffffff !important;
-}
-
-html, body {
-    background: #0b1f3a !important;
-    color: #ffffff !important;
-}
-
-.container, .container-fluid {
+.table {
     background: transparent !important;
 }
 
+/* ================= CARD FIX ================= */
 .card {
-    background: #112a4a !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    color: #111 !important;
     border: none !important;
 }
 
-/* FORCE ALL TEXT TO WHITE */
-body, p, span, a, label, h1, h2, h3, h4, h5, h6 {
-    color: #ffffff !important;
-}
-
-/* INPUT TEXT FIX */
-input, textarea, select {
-    color: #ffffff !important;
-    background-color: #1b355a !important;
-}
-
-/* LINKS */
+/* ================= LINKS ================= */
 a {
-    color: #93c5fd !important;
+    color: #2563eb !important;
+}
+
+/* ================= INPUT RESET ================= */
+input, textarea, select {
+    background-color: #fff !important;
 }
