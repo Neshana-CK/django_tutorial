@@ -1,15 +1,13 @@
 /* ================= BODY ================= */
 
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background: #0b1f3a;   /* navy background */
-    color: #ffffff;        /* white text */
+    background-color: #0b1f3a !important;
+    color: #ffffff !important;
     min-height: 100vh;
 }
-
 /* ================= WRAPPER ================= */
 
 .register-wrapper {
@@ -145,7 +143,18 @@ body {
 .table-hover tbody tr:hover {
     background: #132b4c;
 }
-body {
+
+
+.container,
+.container-fluid,.card {
+    background: #112a4a !important;
+    color: #ffffff;
+    border: none;
+}
+.row {
+    background: transparent !important;
+}
+.navbar,
+.navy-navbar {
     background-color: #0b1f3a !important;
-    color: #ffffff !important;
 }
