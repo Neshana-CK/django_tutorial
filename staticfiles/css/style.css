@@ -1,0 +1,151 @@
+/* ================= BODY ================= */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0b1f3a;   /* navy background */
+    color: #ffffff;        /* white text */
+    min-height: 100vh;
+}
+
+/* ================= WRAPPER ================= */
+
+.register-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ================= CARD ================= */
+
+.register-card {
+    width: 100%;
+    max-width: 430px;
+    background: #112a4a;   /* dark navy card */
+    padding: 40px 30px;
+    border-radius: 28px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    color: #ffffff;
+}
+
+/* ================= TITLE ================= */
+
+.register-title {
+    font-size: 40px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* ================= INPUTS ================= */
+
+.form-control {
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 18px;
+    border: 1px solid #2c4f7a;
+    background: #1b355a;
+    font-size: 17px;
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: #cbd5e1;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 4px rgba(96,165,250,0.2);
+}
+
+/* ================= BUTTON ================= */
+
+.register-btn {
+    width: 100%;
+    background: #ffffff;
+    color: #0b1f3a;
+    border: none;
+    padding: 18px;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.register-btn:hover {
+    background: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+/* ================= LOGIN TEXT ================= */
+
+.login-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.login-text a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 576px) {
+    .register-card {
+        padding: 35px 22px;
+    }
+
+    .register-title {
+        font-size: 34px;
+    }
+}
+
+/* ================= NAVBAR ================= */
+
+.navy-navbar {
+    background: #0b1f3a !important;
+}
+
+.navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    color: #cfe3ff !important;
+}
+
+.navbar .navbar-brand {
+    color: white !important;
+    font-weight: 700;
+}
+
+/* ================= BADGES ================= */
+
+.badge {
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ================= TABLE HOVER ================= */
+
+.table-hover tbody tr {
+    transition: 0.3s ease;
+}
+
+.table-hover tbody tr:hover {
+    background: #132b4c;
+}
+body {
+    background-color: #0b1f3a !important;
+    color: #ffffff !important;
+}
