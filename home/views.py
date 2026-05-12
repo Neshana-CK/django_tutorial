@@ -126,8 +126,6 @@ def logout_view(request):
 
 
 # ================= BOOKING =================
-
-
 @login_required(login_url='login')
 def booking(request):
 
@@ -137,33 +135,18 @@ def booking(request):
         form = BookingForm(request.POST)
 
         if form.is_valid():
-            booking = form.save(commit=False)
+            try:
+                booking = form.save(commit=False)
+                booking.patient = request.user
+                booking.save()
 
-            # attach logged-in user
-            booking.patient = request.user
-            booking.save()
+                return redirect('booking_success')
 
-            # EMAIL (safe + simple)
-            if request.user.email:
-                send_mail(
-                    subject="Appointment Confirmed",
-                    message=f"""
-Hi {request.user.username},
-
-Your appointment is confirmed.
-
-Doctor: {booking.doctor.doc_name}
-Department: {booking.department.dep_name}
-Date: {booking.booking_date}
-
-Thank you.
-""",
-                    from_email=None,
-                    recipient_list=[request.user.email],
-                    fail_silently=True
-                )
-
-            return redirect('booking_success')
+            except Exception as e:
+                return render(request, 'booking.html', {
+                    'form': form,
+                    'error': str(e)
+                })
 
     return render(request, 'booking.html', {'form': form})
 
@@ -225,8 +208,6 @@ def my_reports(request):
 
 @login_required(login_url='login')
 def profile(request):
-    profile = Profile.objects.filter(user=user).first()
+    profile = Profile.objects.filter(user=request.user).first()
     return render(request, 'profile.html', {'profile': profile})
-
-
 
