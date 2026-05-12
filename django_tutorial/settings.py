@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-g3h6zf7ni-i2ys_#-@+^spi4k0^9mkh61t65=r#^3ol^iu)0w(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'django-tutorial-kw1m.onrender.com',
-    '.onrender.com']
+    ]
 
 
 # Application definition
