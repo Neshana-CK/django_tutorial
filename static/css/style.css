@@ -172,3 +172,19 @@ html, body {
     color: #ffffff !important;
     border: none !important;
 }
+
+/* FORCE ALL TEXT TO WHITE */
+body, p, span, a, label, h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+
+/* INPUT TEXT FIX */
+input, textarea, select {
+    color: #ffffff !important;
+    background-color: #1b355a !important;
+}
+
+/* LINKS */
+a {
+    color: #93c5fd !important;
+}
