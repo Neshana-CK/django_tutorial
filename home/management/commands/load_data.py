@@ -4,17 +4,16 @@ from home.models import Departments
 import os
 
 class Command(BaseCommand):
-    help = 'Load initial data safely'
+    help = 'Load departments'
 
     def handle(self, *args, **kwargs):
 
-        # Prevent duplicate loading
         if Departments.objects.exists():
-            self.stdout.write(self.style.WARNING('Data already exists'))
+            self.stdout.write(self.style.WARNING('Departments already loaded'))
             return
 
-        if os.path.exists('data.json'):
-            call_command('loaddata', 'data.json')
-            self.stdout.write(self.style.SUCCESS('Data loaded successfully'))
+        if os.path.exists('departments.json'):
+            call_command('loaddata', 'departments.json')
+            self.stdout.write(self.style.SUCCESS('Departments loaded'))
         else:
-            self.stdout.write(self.style.ERROR('data.json not found'))
+            self.stdout.write(self.style.ERROR('departments.json not found'))
