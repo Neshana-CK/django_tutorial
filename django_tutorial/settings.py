@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'django_tutorial.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
+        default=os.environ.get('DATABASE_URL')
     )
 }
 
@@ -152,4 +152,3 @@ if os.environ.get("RENDER"):
         call_command('loaddata', 'data.json')
     except:
         pass
-
