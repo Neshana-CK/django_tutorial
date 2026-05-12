@@ -106,11 +106,11 @@ a:hover {
 
 /* ================= TEXT ================= */
 h1, h2, h3, h4, h5, h6 {
-    color:white;
+    color:white !important;
 }
 
 p {
-    color: white;
+    color: white !important;
 }
 
 /* ================= MUTED TEXT ================= */
@@ -143,5 +143,5 @@ input, textarea, select {
     color: #111827 !important;
 }
 h1{
-    color: white;
+    color: white !important;
 }
