@@ -99,6 +99,10 @@ a:hover {
 .navbar .nav-link:hover {
     color: #cfe3ff !important;
 }
+.dashboard-header h1,
+.dashboard-header p {
+    color: white !important;
+}
 
 /* ================= TEXT ================= */
 h1, h2, h3, h4, h5, h6 {
