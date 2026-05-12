@@ -145,10 +145,3 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-from django.core.management import call_command
-
-if os.environ.get("RENDER"):
-    try:
-        call_command('loaddata', 'data.json')
-    except:
-        pass
