@@ -230,9 +230,3 @@ def profile(request):
 
 
 
-if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser(
-        'admin',
-        'admin@gmail.com',
-        'admin123'
-    )
