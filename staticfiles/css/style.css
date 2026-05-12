@@ -1,17 +1,14 @@
 /* ================= BODY ================= */
 html, body {
-    background: #0b1f3a !important;
-}
-body {
+    background-color: #0b1f3a !important;   /* Hospital navy */
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #0b1f3a !important;
-    color: #ffffff !important;
     min-height: 100vh;
+    color: #111827;
 }
-/* ================= WRAPPER ================= */
 
+/* ================= WRAPPER ================= */
 .register-wrapper {
     min-height: 100vh;
     display: flex;
@@ -21,101 +18,81 @@ body {
 }
 
 /* ================= CARD ================= */
-
 .register-card {
     width: 100%;
     max-width: 430px;
-    background: #112a4a;   /* dark navy card */
+    background: #ffffff;
     padding: 40px 30px;
-    border-radius: 28px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-    color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    color: #111827;
 }
 
 /* ================= TITLE ================= */
-
 .register-title {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 800;
-    color: #ffffff;
+    color: #0b1f3a;
 }
 
 /* ================= INPUTS ================= */
-
 .form-control {
     width: 100%;
-    padding: 18px 20px;
-    border-radius: 18px;
-    border: 1px solid #2c4f7a;
-    background: #1b355a;
-    font-size: 17px;
-    color: #ffffff;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    font-size: 16px;
+    color: #111827;
     transition: 0.3s ease;
 }
 
 .form-control::placeholder {
-    color: #cbd5e1;
+    color: #9ca3af;
 }
 
 .form-control:focus {
     outline: none;
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 4px rgba(96,165,250,0.2);
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 4px rgba(29,78,216,0.15);
 }
 
 /* ================= BUTTON ================= */
-
 .register-btn {
     width: 100%;
-    background: #ffffff;
-    color: #0b1f3a;
+    background: #1d4ed8;   /* medical blue */
+    color: #ffffff;
     border: none;
-    padding: 18px;
-    border-radius: 18px;
-    font-size: 22px;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 18px;
     font-weight: 700;
     transition: 0.3s ease;
 }
 
 .register-btn:hover {
-    background: #e5e7eb;
+    background: #1e40af;
     transform: translateY(-2px);
 }
 
-/* ================= LOGIN TEXT ================= */
-
-.login-text {
-    font-size: 18px;
-    font-weight: 600;
-    color: #ffffff;
-}
-
-.login-text a {
-    color: #93c5fd;
+/* ================= LINKS ================= */
+a {
+    color: #1d4ed8 !important;
     text-decoration: none;
-    font-weight: 700;
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width: 576px) {
-    .register-card {
-        padding: 35px 22px;
-    }
-
-    .register-title {
-        font-size: 34px;
-    }
+a:hover {
+    text-decoration: underline;
 }
 
 /* ================= NAVBAR ================= */
-
 .navy-navbar {
     background: #0b1f3a !important;
 }
 
-.navbar .nav-link {
-    color: white !important;
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #ffffff !important;
     font-weight: 500;
 }
 
@@ -123,55 +100,41 @@ body {
     color: #cfe3ff !important;
 }
 
-.navbar .navbar-brand {
-    color: white !important;
-    font-weight: 700;
+/* ================= TEXT ================= */
+h1, h2, h3, h4, h5, h6 {
+    color: #0b1f3a;
 }
 
-/* ================= BADGES ================= */
-
-.badge {
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
+p {
+    color: #374151;
 }
 
-/* ================= TABLE HOVER ================= */
-
-.table-hover tbody tr {
-    transition: 0.3s ease;
+/* ================= MUTED TEXT ================= */
+.text-muted {
+    color: #6b7280 !important;
 }
 
-.table-hover tbody tr:hover {
-    background: #132b4c;
-}
-
-
+/* ================= BOOTSTRAP RESET ================= */
 .container,
 .container-fluid,
-.card,
 .row,
-.table,
-.table td,
-.table th {
-    background-color: transparent !important;
-    color: #ffffff !important;
-}
-
-html, body {
-    background: #0b1f3a !important;
-    color: #ffffff !important;
-}
-
-.container, .container-fluid {
+.table {
     background: transparent !important;
 }
 
-.card {
-    background: #112a4a !important;
-    color: #ffffff !important;
-    border: none !important;
+/* ================= TABLE HOVER ================= */
+.table-hover tbody tr:hover {
+    background: #f3f6ff;
 }
-h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
+
+/* ================= BADGE ================= */
+.badge {
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* ================= INPUT RESET ================= */
+input, textarea, select {
+    background-color: #ffffff !important;
+    color: #111827 !important;
 }
