@@ -227,3 +227,12 @@ def my_reports(request):
 def profile(request):
     profile = Profile.objects.filter(user=user).first()
     return render(request, 'profile.html', {'profile': profile})
+
+
+
+if not User.objects.filter(username='admin').exists():
+    User.objects.create_superuser(
+        'admin',
+        'admin@gmail.com',
+        'admin123'
+    )
