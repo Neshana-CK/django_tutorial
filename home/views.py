@@ -225,5 +225,5 @@ def my_reports(request):
 
 @login_required(login_url='login')
 def profile(request):
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.filter(user=user).first()
     return render(request, 'profile.html', {'profile': profile})
