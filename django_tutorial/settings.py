@@ -146,3 +146,14 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+if os.environ.get("RENDER"):
+    from django.contrib.auth.models import User
+
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            "admin",
+            "admin@gmail.com",
+            "admin123"
+        )
